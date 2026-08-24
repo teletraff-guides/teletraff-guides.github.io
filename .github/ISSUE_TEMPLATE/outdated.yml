@@ -8,7 +8,7 @@ body:
     attributes:
       label: Страница документации
       description: Адрес страницы, где найдено расхождение
-      placeholder: https://telegain-guides.github.io/modules/inviting/
+      placeholder: https://teletraff-guides.github.io/modules/inviting/
     validations:
       required: true
   - type: textarea

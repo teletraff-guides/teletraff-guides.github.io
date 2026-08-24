@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://telegain-guides.github.io/sitemap-index.xml
+Sitemap: https://teletraff-guides.github.io/sitemap-index.xml
