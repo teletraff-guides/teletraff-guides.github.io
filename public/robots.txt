@@ -1,4 +1,53 @@
 User-agent: *
 Allow: /
 
+# Ассистенты и краулеры ИИ.
+# Правило `*` их и так пропускает, но у части агентов разрешение считается
+# только при явном совпадении по имени, а у Google-Extended и Applebot-Extended
+# отсутствие строки трактуется как отказ от использования в ответах ассистента.
+# Поэтому имена перечислены явно и список ведётся вручную.
+
+# OpenAI: обучение, поиск ChatGPT, переходы по ссылке из диалога
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic: индексация, поиск и переходы Claude
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+Allow: /
+
+# Google Gemini и обзоры в поиске
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence и Siri
+User-agent: Applebot
+User-agent: Applebot-Extended
+Allow: /
+
+# Прочие: Meta AI, Amazon, Microsoft Copilot, DuckDuckGo, Mistral, Common Crawl
+User-agent: meta-externalagent
+User-agent: FacebookBot
+User-agent: Amazonbot
+User-agent: bingbot
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+User-agent: CCBot
+User-agent: cohere-ai
+User-agent: YouBot
+Allow: /
+
 Sitemap: https://teletraff-guides.github.io/sitemap-index.xml
+
+# Сжатая выжимка сайта для языковых моделей (llmstxt.org)
+# Оглавление: https://teletraff-guides.github.io/llms.txt
+# Полный текст: https://teletraff-guides.github.io/llms-full.txt

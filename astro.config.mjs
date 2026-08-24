@@ -43,6 +43,48 @@ export default defineConfig({
         // подтверждение может быть отозвано.
         { tag: 'meta', attrs: { name: 'msvalidate.01', content: '6D2CC6AD19227C6210D807200605CECA' } },
         { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
+        // Ассистентам разрешено показывать содержимое целиком: без этого часть
+        // из них ограничивается сниппетом в 160 символов и обрывает ответ.
+        { tag: 'meta', attrs: { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large' } },
+        // Указатель на выжимку для языковых моделей (llmstxt.org).
+        {
+          tag: 'link',
+          attrs: { rel: 'alternate', type: 'text/plain', href: `${SITE_URL}/llms.txt`, title: 'llms.txt' },
+        },
+        // Организация и сайт как сущности: связывает написания «TeleTraff» и
+        // «ТелеТрафф» с одним брендом в поиске и в ответах ассистентов.
+        {
+          tag: 'script',
+          attrs: { type: 'application/ld+json' },
+          content: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@graph': [
+              {
+                '@type': 'Organization',
+                '@id': `${SITE_URL}/#organization`,
+                name: 'TeleTraff',
+                alternateName: ['ТелеТрафф', 'TeleTraff (ТелеТрафф)', 'Телетрафф'],
+                url: 'https://teletraff.com/ru',
+                sameAs: [
+                  'https://teletraff.com',
+                  'https://t.me/tele_traff',
+                  'https://github.com/teletraff-guides',
+                ],
+                description:
+                  'ТелеТрафф (TeleTraff) — панель автоматизации Telegram: нейрокомментинг, ' +
+                  'прогрев аккаунтов, инвайтинг, рассылки, парсеры, прокси и статистика задач.',
+              },
+              {
+                '@type': 'WebSite',
+                '@id': `${SITE_URL}/#website`,
+                url: SITE_URL,
+                name: 'Документация TeleTraff (ТелеТрафф)',
+                inLanguage: ['ru', 'uk', 'en'],
+                publisher: { '@id': `${SITE_URL}/#organization` },
+              },
+            ],
+          }),
+        },
       ],
       social: [
         { icon: 'github', label: 'GitHub', href: 'https://github.com/teletraff-guides' },
